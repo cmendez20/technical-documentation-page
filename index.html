@@ -11,14 +11,21 @@
 <body>
   <div class="container">
     <nav id="navbar">
-      <header id="header">JS Documentation</header>
-      <a href="#introduction" class="nav-link">Introduction</a>
-      <a href="#what_you_should_already_know" class="nav-link">What you should already know</a>
-      <a href="#javascript_and_java" class="nav-link">JavaScript and Java</a>
-      <a href="#hello_world" class="nav-link">Hello World</a>
-      <a href="#variables" class="nav-link">Variables</a>
-      <a href="#declaring_variables" class="nav-link">Declaring Variables</a>
-      <a href="#variable_scope" class="nav-link">Variable Scope</a>
+      <header id="header"><a href="#">JS Documentation</a></header>
+      <a href="#" class="toggle-button">
+        <span class="toggle-button__bar"></span>
+        <span class="toggle-button__bar"></span>
+        <span class="toggle-button__bar"></span>
+      </a>
+      <div class="navbar-links">
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#what_you_should_already_know" class="nav-link">What you should already know</a>
+        <a href="#javascript_and_java" class="nav-link">JavaScript and Java</a>
+        <a href="#hello_world" class="nav-link">Hello World</a>
+        <a href="#variables" class="nav-link">Variables</a>
+        <a href="#declaring_variables" class="nav-link">Declaring Variables</a>
+        <a href="#variable_scope" class="nav-link">Variable Scope</a>
+      </div>
     </nav>
     <main id="main-doc">
         <section id="introduction" class="main-section">
@@ -100,8 +107,8 @@
           </p>
           <pre>
             <code>
-              function greetMe(yourName) { alert("Hello " + yourName); }
-              greetMe("World");
+      function greetMe(yourName) { alert("Hello " + yourName); }
+      greetMe("World");
             </code>
           </pre>
           <p class="main-section__paragraph">
@@ -137,7 +144,7 @@
           </p>
           <pre>
             <code>
-              var x = 42.
+      var x = 42. 
             </code>
           </pre>
           <p class="main-section__paragraph">
@@ -148,7 +155,7 @@
           </p>
           <pre>
             <code>
-              x = 42.
+      x = 42.
             </code>
           </pre>
           <p class="main-section__paragraph">
@@ -160,7 +167,7 @@
           </p>
           <pre>
             <code>
-              let y = 13.
+      let y = 13.
             </code>
           </pre>
           <p class="main-section__paragraph">
@@ -183,7 +190,7 @@
           </p>
           <pre>
                     <code>
-                      if (true) { var x = 5; } console.log(x); // 5
+    if (true) { var x = 5; } console.log(x); // 5
                     </code>
                   </pre>
           <p class="main-section__paragraph main-section__code-text">
@@ -191,13 +198,14 @@
           </p>
           <pre>
             <code>
-              if (true) { let y = 5; } console.log(y); // ReferenceError: y is not
-              defined
+    if (true) { let y = 5; } console.log(y); // ReferenceError: y is not
+    defined
             </code>
           </pre>
         </section>
     </main>
   </div>
+  <script src="./scripts.js"></script>
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
