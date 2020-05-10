@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical Documentation Page</title>
+  <title>JavaScript Documentation Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
   <div class="container">
-    <nav id="navbar">
-      <header id="header"><a href="#">JS Documentation</a></header>
+    <nav id="navbar" name="top">
+      <header onclick="topFunction()" id="header"><a href="">JS Documentation</a></header>
       <a href="#" class="toggle-button">
         <span class="toggle-button__bar"></span>
         <span class="toggle-button__bar"></span>
@@ -100,7 +100,7 @@
         </section>
 
         <section id="hello_world" class="main-section">
-          <header class="main-section__header">Hello world</header>
+          <header class="main-section__header">Hello World</header>
           <p class="main-section__paragraph main-section__code-text">
             To get started with writing JavaScript, open the Scratchpad and write your first "Hello world"
             JavaScript code:
@@ -203,6 +203,9 @@
             </code>
           </pre>
         </section>
+
+        <!-- <a class="to-top-button" href="#top">Go back to top</a> -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </main>
   </div>
   <script src="./scripts.js"></script>

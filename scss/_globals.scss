@@ -7,6 +7,11 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
@@ -15,18 +20,6 @@ body {
   line-height: 1.7;
   font-family: 'Space Mono', monospace;
   color: var(--color-nord-white);
-
-  &::-webkit-scrollbar {
-    width: .3rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--color-nord-light-black);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-nord-frost-blue);
-  }
 }
 
 .container {
@@ -40,9 +33,7 @@ body {
   border-right: 4px solid var( --color-nord-light-black);
   display: flex;
   flex-direction: column;
-  // position: fixed;
-  // flex-wrap: wrap;
-  // align-content: flex-start;
+  min-height: 100vh;
 
   & a {
     color: var(--color-nord-white);
@@ -86,31 +77,33 @@ body {
 ////////// STYLING THE MAIN SECTION
 
 #main-doc {
-  margin: 4.5rem;
-  flex: 0 0 140rem;
+  // margin: 4.5rem 0 4.5rem 4.5rem;
+  padding: 4.5rem 0 4.5rem 4.5rem;
+  flex: 1;
+  overflow-y: scroll;
+  height: 100vh;
+
+  &::-webkit-scrollbar {
+    width: .3rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color-nord-light-black);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-nord-frost-blue);
+    border-radius: 100px;
+  }
 
   & section:not(:last-of-type) {
     margin-bottom: 4rem;
   }
-
-  @media only screen and (max-width: 1700px) {
-    flex: 0 0 120rem;
-  }
-
-  @media only screen and (max-width: 1500px) {
-    flex: 0 0 100rem;
-  }
-
-  @media only screen and (max-width: 1300px) {
-    flex: 0 0 90rem;
-  }
-
-  @media only screen and (max-width: 1200px) {
-    flex: 0 0 75rem;
-  }
 }
 
 .main-section {
+  margin-right: 12rem;
+
   &__header {
     font-size: 2.5rem;
     font-weight: 700;
@@ -126,7 +119,6 @@ body {
   }
 
   &__list {
-    list-style-position: inside;
     margin-left: 4rem;
 
     &__item:not(:last-child) {
@@ -144,6 +136,10 @@ body {
     margin-bottom: 0rem;
   }
 
+
+//////////////////////////////////////////////
+////////// STYLING CODE BLOCKS
+
 pre code {
   background-color: var( --color-nord-light-black);
   border: 1px solid var(--color-nord-white);
@@ -153,6 +149,9 @@ pre code {
   margin-left: 3.5rem;
 }
 
+
+//////////////////////////////////////////////
+////////// STYLING THE RESPONSIVE HAMBURGER MENU
 .toggle-button {
   position: absolute;
   top: 2.95rem;
@@ -172,22 +171,50 @@ pre code {
 
 }
 
+//////////////////////////////////////////////
+////////// STYLING THE GO TO TOP BUTTON (with some help from w3schools) 
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 2rem; /* Place the button at the bottom of the page */
+  right: 3rem; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: var(--color-nord-dark-blue); /* Set a background color */
+  color: var(--color-nord-white); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 1.5rem; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 1.6rem; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: var(--color-nord-light-blue); /* Add a dark-grey background on hover */
+}
+
+//////////////////////////////////////////////
+////////// MEDIA QUERIES 
  @media only screen and (max-width: 1024px) {
   .container {
     flex-direction: column;
   }
 
+  #main-doc {
+    padding-top: 0;
+  }
+
   #navbar {
     flex-direction: column;
-    position: sticky;
-    top: 0;
+    // position: sticky;
+    // top: 0;
     background-color: var(--color-nord-bg);
+    min-height: auto;
   }
 
   #header {
     border-bottom: none;
     margin-right: auto;
-    
   }
 
   .toggle-button {
@@ -216,5 +243,45 @@ pre code {
   pre code {
     padding: 0;
     overflow: scroll;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  #header {
+    font-size: 2.1rem;
+  }
+
+  #main-doc {
+    padding: 0 2.5rem 2.5rem 2.5rem;
+  }
+
+  .main-section {
+    margin-right: 0;
+
+    &__header {
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+    }
+
+    &__paragraph {
+      margin: 0 0 2.5rem 0;
+    }
+
+    &__list {
+    list-style-position: outside;
+    margin-left: 2rem;
+
+      &__item:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  pre code {
+  margin-left: 0;
   }
 }

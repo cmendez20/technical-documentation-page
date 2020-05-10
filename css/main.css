@@ -9,6 +9,11 @@ html {
   font-size: 62.5%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -17,18 +22,6 @@ body {
   line-height: 1.7;
   font-family: 'Space Mono', monospace;
   color: var(--color-nord-white);
-}
-
-body::-webkit-scrollbar {
-  width: .3rem;
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--color-nord-light-black);
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--color-nord-frost-blue);
 }
 
 .container {
@@ -49,6 +42,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100vh;
 }
 
 #navbar a {
@@ -95,46 +89,33 @@ body::-webkit-scrollbar-thumb {
 }
 
 #main-doc {
-  margin: 4.5rem;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 140rem;
-          flex: 0 0 140rem;
+  padding: 4.5rem 0 4.5rem 4.5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+#main-doc::-webkit-scrollbar {
+  width: .3rem;
+}
+
+#main-doc::-webkit-scrollbar-track {
+  background: var(--color-nord-light-black);
+}
+
+#main-doc::-webkit-scrollbar-thumb {
+  background: var(--color-nord-frost-blue);
+  border-radius: 100px;
 }
 
 #main-doc section:not(:last-of-type) {
   margin-bottom: 4rem;
 }
 
-@media only screen and (max-width: 1700px) {
-  #main-doc {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 120rem;
-            flex: 0 0 120rem;
-  }
-}
-
-@media only screen and (max-width: 1500px) {
-  #main-doc {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100rem;
-            flex: 0 0 100rem;
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  #main-doc {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 90rem;
-            flex: 0 0 90rem;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  #main-doc {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 75rem;
-            flex: 0 0 75rem;
-  }
+.main-section {
+  margin-right: 12rem;
 }
 
 .main-section__header {
@@ -152,7 +133,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-section__list {
-  list-style-position: inside;
   margin-left: 4rem;
 }
 
@@ -200,6 +180,40 @@ pre code {
   border-radius: 10px;
 }
 
+#myBtn {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 2rem;
+  /* Place the button at the bottom of the page */
+  right: 3rem;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: var(--color-nord-dark-blue);
+  /* Set a background color */
+  color: var(--color-nord-white);
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 1.5rem;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+  font-size: 1.6rem;
+  /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: var(--color-nord-light-blue);
+  /* Add a dark-grey background on hover */
+}
+
 @media only screen and (max-width: 1024px) {
   .container {
     -webkit-box-orient: vertical;
@@ -207,15 +221,16 @@ pre code {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  #main-doc {
+    padding-top: 0;
+  }
   #navbar {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
     background-color: var(--color-nord-bg);
+    min-height: auto;
   }
   #header {
     border-bottom: none;
@@ -246,6 +261,38 @@ pre code {
   pre code {
     padding: 0;
     overflow: scroll;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    font-size: 1.4rem;
+  }
+  #header {
+    font-size: 2.1rem;
+  }
+  #main-doc {
+    padding: 0 2.5rem 2.5rem 2.5rem;
+  }
+  .main-section {
+    margin-right: 0;
+  }
+  .main-section__header {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+  .main-section__paragraph {
+    margin: 0 0 2.5rem 0;
+  }
+  .main-section__list {
+    list-style-position: outside;
+    margin-left: 2rem;
+  }
+  .main-section__list__item:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+  pre code {
+    margin-left: 0;
   }
 }
 
